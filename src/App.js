@@ -1,13 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { ArrayHomework } from "./components/ArrayHomework";
+import { HomePage } from "./components/HomePage";
 
 function App() {
   return (
     <div className="App">
-      <ArrayHomework defaultValue={0} />;
+      <HomePage defaultValue={0} />;
     </div>
-  );
+  )
 }
 
 export default App;
