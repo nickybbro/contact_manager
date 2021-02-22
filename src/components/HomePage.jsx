@@ -1,44 +1,10 @@
 import React from "react";
-import { testData } from "../utility/dummydata";
-import {
-  Layout,
-  Menu,
-  Breadcrumb,
-  Row,
-  Col,
-  Input,
-  Space,
-  Form,
-  Select,
-  InputNumber,
-  Slider,
-} from "antd";
-import {
-  CheckSquareOutlined,
-  LaptopOutlined,
-  NotificationOutlined,
-  AudioOutlined,
-  UploadOutlined,
-  InboxOutlined,
-} from "@ant-design/icons";
-class intergerStep extends React.Component {
-  state = {
-    inputValue: 1,
-  };
-}
-const { SubMenu } = Menu;
-const { Header, Content, Sider } = Layout;
+import { Layout, Menu, Breadcrumb, Row, Col, Input, Space } from "antd";
+import { EyeColor } from "./Filters/EyeColor";
+import { AgeSelect } from "./Filters/AgeSelect";
+const { Header, Content } = Layout;
 const { Search } = Input;
-const { Option } = Select;
-const { InputValue } = this.state;
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: "#1890ff",
-    }}
-  />
-);
+
 const onSearch = (value) => console.log(value);
 
 export const HomePage = () => {
@@ -76,52 +42,9 @@ export const HomePage = () => {
               style={{ width: 200 }}
             />
           </Row>
-          <Row className="s-text">Eye Color</Row>
-          <Row>
-            <Form.Item className="s-text search">
-              <Select placeholder="Select An Eye Color">
-                <Option value="Hazel">Hazel</Option>
-                <Option value="Green">Green</Option>
-                <Option value="Blue">Blue</Option>
-                <Option value="Brown">Brown</Option>
-              </Select>
-            </Form.Item>
-          </Row>
-          <Row className="s-text">Company</Row>
-          <Row>
-            <Form.Item className="s-text search">
-              <Select placeholder="Select a Company">
-                <Option value="VIDTO">VIDTO</Option>
-                <Option value="GLUID">GLUID</Option>
-                <Option value="GEOFARM">GEOFARM</Option>
-                <Option value="OPTICOM">OPTICOM</Option>
-                <Option value="RODEOMAD">RODEOMAD</Option>
-                <Option value="RETROTEX">RETROTEX</Option>
-                <Option value="INRT">INRT</Option>
-                <Option value="BEDLAM">BEDLAM</Option>
-              </Select>
-            </Form.Item>
-          </Row>
-          <Row className="s-text">Age</Row>
-          <Row>
-            <Col span={12}>
-              <Slider
-                min={1}
-                max={20}
-                onChange={this.onChange}
-                value={typeof inputValue === "number" ? inputValue : 0}
-              />
-            </Col>
-            <Col span={4}>
-              <inputNumber
-                min={1}
-                max={20}
-                style={{ margin: "0 16px" }}
-                value={inputValue}
-                onChange={this.onChange}
-              />
-            </Col>
-          </Row>
+          <EyeColor />
+          <CompanySelect />
+          <AgeSelect />
         </Col>
         <Col span={18}>
           <Layout style={{ padding: "0 24px 24px" }}>
