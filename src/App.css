@@ -6,6 +6,25 @@
   height: 40vmin;
   pointer-events: none;
 }
+.h-100 {
+  height: 100%;
+}
+.search {
+  width: 400px;
+  margin-top: 20px;
+}
+.center-left {
+  margin: 30px 42px;
+  font-size: x-large;
+  color: #c4c4c4;
+}
+.s-text {
+  margin: 15px 42px;
+  color: #101010;
+}
+.center {
+  margin-left: 42px;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
