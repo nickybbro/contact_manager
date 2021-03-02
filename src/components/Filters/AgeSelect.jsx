@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Slider, InputNumber, Row, Col } from "antd";
 
 export const AgeSelect = () => {
@@ -10,7 +10,7 @@ export const AgeSelect = () => {
 
   return (
     <>
-      <Row className="s-text">Age</Row>
+      <Row>Age</Row>
       <Row>
         <Col span={12}>
           <Slider
@@ -37,7 +37,7 @@ export const AgeSelect = () => {
 // export const Slider = () => {
 //   return (
 //     <>
-//       <Row className="s-text">Age</Row>
+//       <Row >Age</Row>
 //       <Row>
 //         <Col span={12}>
 //           <Slider

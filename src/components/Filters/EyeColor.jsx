@@ -4,7 +4,7 @@ const { Option } = Select;
 export const EyeColor = () => {
   return (
     <>
-      <Row className="s-text">Eye Color</Row>
+      <Row>Eye Color</Row>
       <Row>
         <Form.Item className="s-text search">
           <Select placeholder="Select An Eye Color">
