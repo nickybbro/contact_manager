@@ -14,9 +14,10 @@ export const question2 = (array) => {
 };
 //3 filter out the items where active is false
 export const question3 = (array) => {
-  function filterIsActive(isActive) {
-    if (isActive === false) return;
-  }
+  return array.filter((dogshit) => dogshit.isActive === true);
+};
+export const findEmail = (array, email) => {
+  return array.filter((dogshit) => dogshit.email === email);
 };
 // 4 sort the items by last name
 export const question4 = (array) => {

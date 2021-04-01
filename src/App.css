@@ -36,6 +36,11 @@
   font-size: 35px;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
 }
+.vertical-flex-sb {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .content-container {
   padding: 2em;
 }

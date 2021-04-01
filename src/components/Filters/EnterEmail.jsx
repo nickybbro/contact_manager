@@ -1,11 +1,19 @@
 import React from "react";
 import { Input, Row } from "antd";
-const { TextArea } = Input;
 
-export const EnterEmail = ({ listOfEmails }) => {
+export const EnterEmail = ({ people, setPeople, unfilteredPeople }) => {
   const onChange = (e) => {
-    console.log(e);
+    const searchQuery = e.target.value;
+    if (searchQuery) {
+      const filteredPeople = unfilteredPeople.filter(
+        (p) => p.email === searchQuery
+      );
+      setPeople(filteredPeople);
+    } else {
+      setPeople(unfilteredPeople);
+    }
   };
+
   return (
     <>
       <Row>Email</Row>

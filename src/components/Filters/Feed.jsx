@@ -1,54 +1,79 @@
 import React from "react";
-import { Row, Col, Button, Radio, Typography } from "antd";
-var zacBrooks = document.createElement("img");
-zacBrooks.src = "Bruce_Banner_(Earth-TRN746)_from_Team_Thor_001 1.png";
+import { Row, Col, Button, Typography, Tag } from "antd";
+import { EditOutlined } from "@ant-design/icons";
+import profilePicture from "../../assets/image/pro_pic.png";
 const { Title, Link, Text } = Typography;
-export const Feed = () => {
+export const Feed = ({ people }) => {
+  return (
+    <>
+      {people.map((person) => (
+        <ContactCard
+          name={person.name.first + " " + person.name.last}
+          company={person.company}
+          email={person.email}
+          description={person.about}
+          isActive={person.isActive}
+        />
+      ))}
+    </>
+  );
+};
+
+const ContactCard = ({ name, company, email, description, isActive }) => {
   return (
     <div className="contact-card">
       <Row>
-        <Col span={4}></Col>
+        <Col span={4}>
+          <img alt="Profile" src={profilePicture} />
+        </Col>
         <Col span={10}>
           <Row>
-            <Title>Zac Brooks</Title>
+            <Title>{name}</Title>
           </Row>
           <Row>
-            <Title level={5}>COMPANY HERE</Title>
+            <Title level={5}>{company}</Title>
           </Row>
           <Row>
-            <Text style={{ textAlign: "left" }}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud e
-            </Text>
+            <Text style={{ textAlign: "left" }}>{description}</Text>
           </Row>
           <Row>
             <Col span={8}>
               <div>
-                <Text style={{ float: "left" }}>Email</Text>
+                <Text style={{ float: "left" }}>Email:</Text>
               </div>
             </Col>
             <Col span={16}>
               <div>
-                <Link style={{ float: "right" }}>
-                  Nickslackerpacker@thehouse.com
-                </Link>
+                <Link style={{ float: "right" }}>{email}</Link>
               </div>
             </Col>
           </Row>
         </Col>
         <Col span={4} />
-        <Col span={6}>
+        <Col className="vertical-flex-sb" span={6}>
           <Row>
             <Col span={12}>
-              <Button type="primary" shape="round" size={"10px"}>
-                View Details
+              <Button
+                icon={<EditOutlined />}
+                type="primary"
+                shape="round"
+                size={"10px"}
+              >
+                Edit Contact Info
               </Button>
             </Col>
             <Col span={12}>
-              <Button type="primary" shape="round" size={"10px"}>
+              <Button shape="round" size={"10px"}>
                 View Details
               </Button>
+            </Col>
+          </Row>
+          <Row>
+            <Col span={12}>
+              <Title level={5}>{isActive} </Title>
+            </Col>
+            <Col span={12}>
+              <Tag color="green">{isActive ? "Yes" : "No"}</Tag>
             </Col>
           </Row>
         </Col>

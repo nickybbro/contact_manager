@@ -33,30 +33,3 @@ export const AgeSelect = () => {
     </>
   );
 };
-
-// export const Slider = () => {
-//   return (
-//     <>
-//       <Row >Age</Row>
-//       <Row>
-//         <Col span={12}>
-//           <Slider
-//             min={1}
-//             max={20}
-//             onChange={this.onChange}
-//             value={typeof inputValue === "number" ? inputValue : 0}
-//           />
-//         </Col>
-//         <Col span={4}>
-//           <inputNumber
-//             min={1}
-//             max={20}
-//             style={{ margin: "0 16px" }}
-//             value={inputValue}
-//             onChange={this.onChange}
-//           />
-//         </Col>
-//       </Row>
-//     </>
-//   );
-// };

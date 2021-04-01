@@ -1,24 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { Row, Form, Select } from "antd";
 const { Option } = Select;
-export const CompanySelect = ({ people }) => {
-  //  <CompanySelect count={20} bestPerson='Angela'people={people} />
-  //here, create an array that has all of the unique 'Company' Values on people.
-  const filterOptions = [];
+export const CompanySelect = ({ people, unfilteredPeople, setPeople }) => {
+  const [options] = useState([
+    ...new Set(unfilteredPeople.map((o) => o.company)),
+  ]);
+  const filterPeople = (value) => {
+    if (value) {
+      const filteredPeople = unfilteredPeople.filter(
+        (p) => p.company === value
+      );
+      setPeople(filteredPeople);
+    }
+  };
+  const resetPeople = () => {
+    setPeople(unfilteredPeople);
+  };
+
   return (
     <>
       <Row>Company</Row>
       <Row>
         <Form.Item className="s-text search">
-          <Select placeholder="Select a Company">
-            <Option value="VIDTO">VIDTO</Option>
-            <Option value="GLUID">GLUID</Option>
-            <Option value="GEOFARM">GEOFARM</Option>
-            <Option value="OPTICOM">OPTICOM</Option>
-            <Option value="RODEOMAD">RODEOMAD</Option>
-            <Option value="RETROTEX">RETROTEX</Option>
-            <Option value="INRT">INRT</Option>
-            <Option value="BEDLAM">BEDLAM</Option>
+          <Select
+            onChange={(value) => filterPeople(value)}
+            placeholder="Select a Company"
+            allowClear
+            onClear={() => resetPeople()}
+          >
+            {options.map((company) => (
+              <Option value={company}>{company}</Option>
+            ))}
           </Select>
         </Form.Item>
       </Row>

@@ -1,0 +1,19 @@
+Filter: 
+
+> Search 
+Upon clicking the search button search for a users name
+> Name
+   -- First 
+   Upon changing (onChange) search for the peoples first name
+   -- Last
+   Upon Changing (onChange) search for the peoples last name
+> Eye Color
+DONE
+> Company
+> Upon selecting (onChange) filter to the people with the same company
+> Age
+> Upon Change, filter to the users that have an age GREATER THAN the number selected
+> Email
+search for email here
+> Is Active 
+onClick of the button, filter out the users that are active or not! 
