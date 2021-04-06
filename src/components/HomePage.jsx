@@ -65,7 +65,11 @@ export const HomePage = () => {
               setPeople={setPeople}
               unfilteredPeople={unfilteredPeople}
             />
-            <IsActiveSelect />
+            <IsActiveSelect
+              unfilteredPeople={unfilteredPeople}
+              people={people}
+              setPeople={setPeople}
+            />
           </Space>
         </Col>
         <Col className="content-container" span={18}>

@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { Slider, InputNumber, Row, Col } from "antd";
 
-export const AgeSelect = () => {
+export const AgeSelect = (setPeople, unfilteredPeople) => {
   const [inputValue, setInputValue] = useState(1);
 
   const onChange = (value) => {
-    setInputValue(value);
+    setInputValue
+    //use .filter() to filter down to ages above the value
+    //setPeople to the filter results
   };
 
   return (

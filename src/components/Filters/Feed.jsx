@@ -73,7 +73,9 @@ const ContactCard = ({ name, company, email, description, isActive }) => {
               <Title level={5}>{isActive} </Title>
             </Col>
             <Col span={12}>
-              <Tag color="green">{isActive ? "Yes" : "No"}</Tag>
+              <Tag color={isActive ? "green" : "red"}>
+                {isActive ? "Yes" : "No"}
+              </Tag>
             </Col>
           </Row>
         </Col>

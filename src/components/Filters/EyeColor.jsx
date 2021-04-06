@@ -26,7 +26,13 @@ export const EyeColor = ({ people, setPeople, unfilteredPeople }) => {
             placeholder="Select An Eye Color"
             allowClear
             onClear={() => resetPeople()}
-          ></Select>
+          >
+            {options.map((eyeColor, i) => (
+              <Option key={i} value={eyeColor}>
+                {eyeColor}
+              </Option>
+            ))}
+          </Select>
         </Form.Item>
       </Row>
     </>
