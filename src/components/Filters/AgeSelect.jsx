@@ -1,18 +1,31 @@
 import React, { useState } from "react";
 import { Slider, InputNumber, Row, Col } from "antd";
 
-export const AgeSelect = (setPeople, unfilteredPeople) => {
-  const [inputValue, setInputValue] = useState(1);
+// Created a component to filter people by a minimum age
+export const AgeSelect = ({unfilteredPeople,setPeople}) => {
 
+// manages the minimum age that the user puts 
+  const [inputValue, setInputValue] = useState(1);
+//onchange functino for the inputs
   const onChange = (value) => {
-    setInputValue
-    //use .filter() to filter down to ages above the value
-    //setPeople to the filter results
+  
+    if (value) {
+      //made a funtion to filter out the people that are above the age of the input
+      const filteredPeople = unfilteredPeople.filter(
+        (p) => p.age >= value
+      )
+      // updated our input state variable so the slider and the textbox both update correctly
+      setInputValue(value)
+      // updated our array to the people filtered 
+      setPeople(filteredPeople)
+    }
+
   };
+  
 
   return (
     <>
-      <Row>Age</Row>
+      <Row>Minimium Age</Row>
       <Row>
         <Col span={12}>
           <Slider

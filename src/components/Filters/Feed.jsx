@@ -1,7 +1,7 @@
 import React from "react";
 import { Row, Col, Button, Typography, Tag } from "antd";
 import { EditOutlined } from "@ant-design/icons";
-import profilePicture from "../../assets/image/pro_pic.png";
+import profilePicture from "../../1.jpg";
 const { Title, Link, Text } = Typography;
 export const Feed = ({ people }) => {
   return (
@@ -13,13 +13,14 @@ export const Feed = ({ people }) => {
           email={person.email}
           description={person.about}
           isActive={person.isActive}
+          image={person.image}
         />
       ))}
     </>
   );
 };
 
-const ContactCard = ({ name, company, email, description, isActive }) => {
+const ContactCard = ({ name, company, email, description, isActive, image }) => {
   return (
     <div className="contact-card">
       <Row>

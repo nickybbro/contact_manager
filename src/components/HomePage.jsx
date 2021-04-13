@@ -59,7 +59,12 @@ export const HomePage = () => {
               setPeople={setPeople}
               unfilteredPeople={unfilteredPeople}
             />
-            <AgeSelect />
+         
+            <AgeSelect
+              unfilteredPeople={unfilteredPeople}
+              people={people}
+              setPeople={setPeople}
+            />
             <EnterEmail
               people={people}
               setPeople={setPeople}

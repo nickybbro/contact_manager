@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Row, Form, Select } from "antd";
 const { Option } = Select;
-export const CompanySelect = ({ people, unfilteredPeople, setPeople }) => {
+export const CompanySelect = ({ unfilteredPeople, setPeople }) => {
   const [options] = useState([
     ...new Set(unfilteredPeople.map((o) => o.company)),
   ]);
