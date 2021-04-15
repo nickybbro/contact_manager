@@ -39,11 +39,7 @@ export const HomePage = () => {
       <Row className="h-100">
         <Col style={{ backgroundColor: "white" }} span={6}>
           <Space size={25} className="s-text" direction="vertical">
-            <Search
-              className="search"
-              placeholder="Search for your friends"
-              onSearch={onSearch}
-            />
+            <Search setPeople={setPeople} unfilteredPeople={unfilteredPeople} />
             <Row>FILTER FRIENDS BY:</Row>
             <Row>Name:</Row>
             <Row>
