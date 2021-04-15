@@ -1,16 +1,16 @@
 import React from "react";
 import { Row, Col, Button, Typography, Tag } from "antd";
 import { EditOutlined } from "@ant-design/icons";
-import profilePicture from "../../1.jpg";
 const { Title, Link, Text } = Typography;
-export const Feed = ({ people }) => {
+export const Feed = ({ people, photos }) => {
   return (
     <>
-      {people.map((person) => (
+      {people.map((person, i) => (
         <ContactCard
           name={person.name.first + " " + person.name.last}
           company={person.company}
           email={person.email}
+          photo={photos[i]}
           description={person.about}
           isActive={person.isActive}
           image={person.image}
@@ -20,12 +20,23 @@ export const Feed = ({ people }) => {
   );
 };
 
-const ContactCard = ({ name, company, email, description, isActive, image }) => {
+const ContactCard = ({
+  name,
+  company,
+  email,
+  description,
+  isActive,
+  photo,
+}) => {
   return (
     <div className="contact-card">
       <Row>
-        <Col span={4}>
-          <img alt="Profile" src={profilePicture} />
+        <Col className="photo-container" span={4}>
+          <div
+            className="contact-photo"
+            alt="Profile"
+            style={{ backgroundImage: `url(${photo})` }}
+          />
         </Col>
         <Col span={10}>
           <Row>

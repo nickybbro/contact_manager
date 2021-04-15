@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Row, Col, Input, Space } from "antd";
 import { EyeColor } from "./Filters/EyeColor";
 import { AgeSelect } from "./Filters/AgeSelect";
@@ -17,10 +17,23 @@ const onSearch = (value) => console.log(value);
 export const HomePage = () => {
   const [unfilteredPeople, setUnfilteredPeople] = useState(testData);
   const [people, setPeople] = useState(testData);
-
+  const [photos, setPhotos] = useState([]);
+  useEffect(() => {
+    fetch("https://uifaces.co/api", {
+      method: "GET",
+      headers: {
+        "X-API-KEY": "21013FF3-61164FD2-B1C0B35E-4DB65303",
+        Accept: "application/json",
+        "Cache-Control": "no-cache",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => setPhotos(data.map((d) => d.photo)));
+  }, []);
   return (
     <Layout style={{ height: "100vh" }}>
       <Row className="find-friends">
+  
         <img alt="Site Logo" src={siteLogo} />
       </Row>
       <Row className="h-100">
@@ -53,13 +66,14 @@ export const HomePage = () => {
               people={people}
               setPeople={setPeople}
               unfilteredPeople={unfilteredPeople}
+          
             />
             <CompanySelect
               people={people}
               setPeople={setPeople}
               unfilteredPeople={unfilteredPeople}
             />
-         
+
             <AgeSelect
               unfilteredPeople={unfilteredPeople}
               people={people}
@@ -79,7 +93,7 @@ export const HomePage = () => {
         </Col>
         <Col className="content-container" span={18}>
           <HeaderControls />
-          <Feed people={people} />
+          <Feed photos={photos} people={people} />
         </Col>
       </Row>
     </Layout>
